@@ -1,24 +1,26 @@
 # boot-clj-docker-image
 
-`adzerk/boot-clj` is a public Docker image that installs and sets up Oracle
+`thosmos/boot-clj` is a fork of `adzerk/boot-clj`, a public Docker image that installs and sets up Oracle
 Java 8 and the latest version of [Boot][boot].
 
+This fork removes the entrypoint and run lines, so this is only for being extended by another image.
+
 This repo is set up as an [automated build][docker] on Docker Hub. The
-`adzerk/boot-clj` Docker image is automatically built from the _Dockerfile_
+`thosmos/boot-clj` Docker image is automatically built from the _Dockerfile_
 in this repo and deployed to Docker Hub.
 
 ## Try It
 
 ```
-$ docker run -it adzerk/boot-clj repl
+$ docker run -it --rm thosmos/boot-clj boot repl
 ```
 
 ## Extend It
 
 To use as a base image for another _Dockerfile_, put this at the top of your
-_Dockerfile_: 
+_Dockerfile_:
 
-    FROM adzerk/boot-clj:latest
+    FROM thosmos/boot-clj:latest
 
 ## Cache Maven Artifacts At Build Time
 
